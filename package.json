@@ -1,13 +1,18 @@
 {
-  "name": "node-app",
-  "version": "1.0.0",
-  "description": "Node.js app",
+  "name": "node",
+  "version": "8.8.8",
+  "description": "Node.js Application",
   "main": "index.js",
+  "license": "Apache-2.0",
+  "private": false,
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "axios": "^0.24.0"
+    "axios": "^1.6.3",
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
