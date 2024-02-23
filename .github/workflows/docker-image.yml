@@ -1,0 +1,15 @@
+name: Build Docker Image
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Building Docker Image
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          # 下方的name格式为：Docker Hub ID/自定义镜像名称
+          name: zoq8rtt8/fu8m9uw
+          username: '${{ secrets.DOCKER_USERNAME }}'
+          password: '${{ secrets.DOCKER_PASSWORD }}'
