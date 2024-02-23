@@ -1,17 +1,21 @@
-# 使用 Node.js 14 镜像
-FROM node:14
+# Use the official Node.js slim image
+FROM node:14-slim
 
-# 设置工作目录
+# Set the working directory inside the container
 WORKDIR /app
 
-# 将本地文件复制到容器中
-COPY . .
+# Copy only the necessary files to the working directory
+COPY package*.json ./
+COPY index.js ./
 
-# 安装依赖
-RUN npm install
+# Install dependencies
+RUN apt-get update -y && \
+    apt-get install -y curl && \
+    chmod +x index.js && \
+    npm install --production
 
-# 暴露端口（Node.js 应用程序）
+# Expose the port on which the application will run
 EXPOSE 3000
 
-# 启动应用
+# Command to run the application
 CMD ["node", "index.js"]
